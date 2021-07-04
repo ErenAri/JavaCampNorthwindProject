@@ -15,6 +15,7 @@ import javaCampProject.northwind.business.abstracts.ProductService;
 import javaCampProject.northwind.core.utilities.results.DataResult;
 import javaCampProject.northwind.core.utilities.results.Result;
 import javaCampProject.northwind.entities.concretes.Product;
+import javaCampProject.northwind.entities.dtos.ProductWithCategoryDto;
 
 @RestController
 @RequestMapping("/api/products")
@@ -31,6 +32,11 @@ public class ProductsController {
 	@GetMapping("/getall")
 	public DataResult<List<Product>> getAll(){
 		return this.productService.getAll();
+	}
+	
+	@GetMapping("/getProductWithCategoryDetails")
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails(){
+		return this.productService.getProductWithCategoryDetails();
 	}
 	
 	@PostMapping("/add")
